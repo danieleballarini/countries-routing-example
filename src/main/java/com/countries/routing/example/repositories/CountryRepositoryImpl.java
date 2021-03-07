@@ -13,9 +13,25 @@ public class CountryRepositoryImpl implements CountryRepository {
     RestTemplate restTemplate;
 
     @Override
-    public Countries findAll() {
-        Countries countries = restTemplate.getForObject("https://restcountries.eu/rest/v2/all", Countries.class);
-        return countries;
+    public Countries findAll(int page, int max) {
+        Countries allCountries = restTemplate.getForObject("https://restcountries.eu/rest/v2/all", Countries.class);
+        if (page == 0 || max == 0) {
+            return allCountries;
+        }
+
+        Countries pagedCountries = new Countries();
+
+        int fromIndex = (page-1) * max;
+        if ( fromIndex > allCountries.size() - 1 ) {
+            return pagedCountries;
+        }
+        int toIndex = ((page-1) * max) + max;
+        if ( toIndex > allCountries.size() - 1 ) {
+            toIndex = allCountries.size() - 1;
+        }
+
+        pagedCountries.addAll( allCountries.subList(fromIndex, toIndex) );
+        return pagedCountries;
     }
 
     @Bean

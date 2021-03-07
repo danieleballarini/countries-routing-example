@@ -2,7 +2,7 @@
 
 ## Description
 
-The backend implementing the rest API was implemented using Spring.
+The backend implementing the REST API was implemented using Spring.
 
 The frontend was implemented as single page application (SPA) using React.
 
@@ -45,4 +45,18 @@ then in the browser go to
 
 http://localhost:8080/index.html
 
+```
+
+Invoke REST API
+
+with basic authentication
+
+```sh
+curl --user user:password http://localhost:8080/api/countries?page=5&max=10
+```
+
+with pagination
+
+```sh
+curl --user user:password http://localhost:8080/api/countries?page=5&max=10
 ```

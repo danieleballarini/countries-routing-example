@@ -2,6 +2,6 @@ package com.countries.routing.example.repositories;
 
 public interface CountryRepository {
 
-    Countries findAll();
+    Countries findAll(int page, int max);
 
 }
