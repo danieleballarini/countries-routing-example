@@ -1,3 +1,5 @@
+# Countries Routing Example
+
 ## Description
 
 The backend implementing the rest API was implemented using Spring.
@@ -6,7 +8,17 @@ The frontend was implemented as single page application (SPA) using React.
 
 The IDE used was IntelliJ IDEA CE
 
-## Build
+
+## Getting Started
+
+### Download
+
+```sh
+git clone https://github.com/danieleballarini/countries-routing-example.git
+```
+
+
+### Build
 
 To build the distribution package execute the following commands
 
@@ -16,7 +28,8 @@ mvn clean package
 
 ```
 
-## Run
+
+### Run
 
 To run locally execute the following commands
 
