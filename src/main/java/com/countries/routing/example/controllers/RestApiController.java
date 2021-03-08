@@ -28,11 +28,9 @@ public class RestApiController {
         try {
             return countryRepository.updateCountry(name, country);
         } catch(CountryNotFoundException ex) {
-            throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Country Not Found", ex);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Country Not Found", ex);
         } catch(CountryConstraintViolationException ex) {
-            throw new ResponseStatusException(
-                    HttpStatus.CONFLICT, "Country Conflict", ex);
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Country Conflict", ex);
         } catch(Exception ex) {
             throw ex;
         }

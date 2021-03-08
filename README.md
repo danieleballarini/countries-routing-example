@@ -12,7 +12,7 @@ The IDE used was IntelliJ IDEA CE and Java 8.
 
 - Implemented REST API method to get list of countries ( /api/countries )
 ```sh
-/api/countries
+/api/countries (GET)
 ```  
 - Implemented SPA to show list of countries with frontend pagination
 
@@ -23,6 +23,21 @@ The IDE used was IntelliJ IDEA CE and Java 8.
 ```sh
 /api/countries?page=5&max=10
 ```
+- Implemented REST API method to change capital for a country
+```sh
+/api/countries/{name} (PUT)
+
+request body
+{
+  "capital": "some capital"
+}
+
+response body
+{
+  "name": "some country",
+  "capital": "some capital"
+}
+```
 
 ## Getting Started
 
@@ -31,7 +46,6 @@ The IDE used was IntelliJ IDEA CE and Java 8.
 ```sh
 git clone https://github.com/danieleballarini/countries-routing-example.git
 ```
-
 
 ### Build
 
@@ -42,7 +56,6 @@ To build the distribution package execute the following commands
 mvn clean package
 
 ```
-
 
 ### Run
 
@@ -62,7 +75,7 @@ http://localhost:8080/index.html
 
 ```
 
-Invoke REST API
+**Invoke REST API Get Countries**
 
 with basic authentication
 
@@ -74,4 +87,13 @@ with pagination
 
 ```sh
 curl --user user:password http://localhost:8080/api/countries?page=5&max=10
+```
+
+
+**Invoke REST API Update Country**
+
+with basic authentication
+
+```sh
+curl -X PUT --user user:password -H 'content-type: application/json' -d '{"capital": "buenos aires"}' http://localhost:8080/api/countries/argentina
 ```
