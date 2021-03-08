@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.countries</groupId>
 	<artifactId>countries-routing-example</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>countries-routing-example</name>
 	<description>Countries Routing Example Project</description>
