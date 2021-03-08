@@ -1,10 +1,10 @@
 package com.countries.routing.example.repositories;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Country {
 
     @Getter
