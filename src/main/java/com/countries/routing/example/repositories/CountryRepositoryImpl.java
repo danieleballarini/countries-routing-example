@@ -38,7 +38,7 @@ public class CountryRepositoryImpl implements CountryRepository {
                 String.format("https://restcountries.eu/rest/v2/name/%1$s?fullText=true&fields=name;capital;currencies", name),
                 Countries.class);
         if (countries == null || countries.isEmpty()) {
-            throw new Exception("Unable to update country due to country name does NOT exist");
+            throw new CountryNotFoundException("Unable to update country due to country name does NOT exist");
         }
         Country existingCountry = countries.get(0);
 
@@ -51,7 +51,7 @@ public class CountryRepositoryImpl implements CountryRepository {
             Countries.class);
         if ( countries != null &&
                 ( countries.size() > 1 || !countries.get(0).getName().equalsIgnoreCase( existingCountry.getName() ) ) ) {
-            throw new Exception("Unable to update country due to country capital is ALREADY assigned");
+            throw new CountryConstraintViolationException("Unable to update country due to country capital is ALREADY assigned");
         }
 
         existingCountry.setCapital( capital );
